@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+<h2>Add Usage</h2>
+<form method="post" class="form-grid">
+  <label>MID <input name="mid" required></label>
+  <label>DID <input name="did" required></label>
+  <label>EID <input name="eid" required></label>
+  <label>Start Date <input type="date" name="s_date" required></label>
+  <label>End Date <input type="date" name="e_date"></label>
+  <label>Purpose <textarea name="purpose" required></textarea></label>
+  <button>Add Usage</button>
+</form>
+</section>
+{% endblock %}

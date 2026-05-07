@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% import 'table_macro.html' as tbl %}
+{% block content %}
+<div class="title-row"><h2>Equipment Usage</h2><a class="button" href="{{ url_for('add_usage') }}">Add Usage</a></div>
+<form method="GET" action="/usage" style="margin: 10px 0;">
+  <input type="text" name="search" placeholder="Search by member name or equipment name" value="{{ search or '' }}">
+  <button type="submit">Search</button>
+</form>
+{{ tbl.render_table(rows) }}
+<div class="actions-list">
+{% for r in rows %}
+<form method="post" action="{{ url_for('delete_usage') }}">
+  <input type="hidden" name="mid" value="{{ r.MID }}"><input type="hidden" name="did" value="{{ r.DID }}"><input type="hidden" name="s_date" value="{{ r.S_Date }}">
+  <button class="danger">Delete usage MID {{ r.MID }} DID {{ r.DID }} on {{ r.S_Date }}</button>
+</form>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+<h2>{{ action }} Equipment</h2>
+<form method="post" class="form-grid">
+  <label>EID <input name="eid" value="{{ row.EID if row else '' }}" {% if row %}readonly{% endif %} required></label>
+  <label>Type <input name="etype" value="{{ row.E_Type if row else '' }}" required></label>
+  <label>Name <input name="ename" value="{{ row.E_Name if row else '' }}" required></label>
+  <label>Manual Text <textarea name="manual">{{ row.Manual_Text if row else '' }}</textarea></label>
+  <button>{{ action }} Equipment</button>
+</form>
+</section>
+{% endblock %}

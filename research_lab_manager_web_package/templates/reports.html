@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Grant and Publication Reporting</h2>
+<div class="grid">
+  <a class="card link" href="{{ url_for('top_funded') }}">Top 5 projects by grant funding</a>
+  <a class="card link" href="{{ url_for('mentor_publications') }}">Mentor(s) with most mentee publications</a>
+  <a class="card link" href="{{ url_for('student_publications') }}">Student publications by major/year</a>
+  <a class="card link" href="{{ url_for('projects_ended') }}">Projects ended before date</a>
+  <a class="card link" href="{{ url_for('productive_years') }}">Top 3 productive publication years</a>
+</div>
+{% endblock %}

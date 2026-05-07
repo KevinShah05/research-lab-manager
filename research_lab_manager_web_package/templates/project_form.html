@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+<h2>{{ action }} Project</h2>
+<form method="post" class="form-grid">
+  <label>PID <input name="pid" value="{{ row.PID if row else '' }}" {% if row %}readonly{% endif %} required></label>
+  <label>Title <input name="title" value="{{ row.Title if row else '' }}" required></label>
+  <label>Start Date <input type="date" name="s_date" value="{{ row.S_Date if row else '' }}" required></label>
+  <label>End Date <input type="date" name="e_date" value="{{ row.E_Date if row and row.E_Date else '' }}"></label>
+  <label>Duration <input name="duration" value="{{ row.E_Duration if row else '' }}" required></label>
+  <label>Leader <select name="leader">{% for f in faculty %}<option value="{{ f.MID }}">{{ f.MID }} - {{ f.Name }}</option>{% endfor %}</select></label>
+  <button>{{ action }} Project</button>
+</form>
+</section>
+{% endblock %}

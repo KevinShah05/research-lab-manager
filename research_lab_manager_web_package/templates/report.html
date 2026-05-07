@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% import 'table_macro.html' as tbl %}
+{% block content %}
+<h2>{{ title }}</h2>
+{% if form == 'project_status' %}<form method="post" class="inline-form"><input name="pid" placeholder="Project ID" required><button>Search</button></form>{% endif %}
+{% if form == 'grant_members' %}<form method="post" class="inline-form"><input name="gid" placeholder="Grant ID" required><button>Search</button></form>{% endif %}
+{% if form == 'equipment_status' %}<form method="post" class="inline-form"><input name="eid" placeholder="Equipment ID" required><button>Search</button></form>{% endif %}
+{% if form == 'current_users' %}<form method="post" class="inline-form"><input name="eid" placeholder="Equipment ID" required><button>Search</button></form>{% endif %}
+{% if form == 'projects_ended' %}<form method="post" class="inline-form"><input type="date" name="date_x" required><button>Search</button></form>{% endif %}
+{{ tbl.render_table(rows) }}
+{% endblock %}

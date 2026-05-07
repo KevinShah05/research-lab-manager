@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% import 'table_macro.html' as tbl %}
+{% block content %}
+<div class="title-row"><h2>Lab Members</h2><a class="button" href="{{ url_for('add_member') }}">Add Member</a></div>
+<form method="GET" action="/members" style="margin: 10px 0;">
+  <input type="text" name="search" placeholder="Search by name or MID" value="{{ search or '' }}">
+  <button type="submit">Search</button>
+</form>
+{{ tbl.render_table(rows) }}
+<div class="actions-list">
+{% for r in rows %}
+  <form method="post" action="{{ url_for('delete_member', mid=r.MID) }}"><a href="{{ url_for('edit_member', mid=r.MID) }}">Edit {{ r.MID }}</a><button class="danger">Delete {{ r.MID }}</button></form>
+{% endfor %}
+</div>
+{% endblock %}

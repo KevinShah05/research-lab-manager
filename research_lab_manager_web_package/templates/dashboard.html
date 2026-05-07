@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard</h2>
+<div class="grid">
+  <a class="card link" href="{{ url_for('members') }}"><h3>Project & Member Management</h3><p>Query, add, update, remove members and projects.</p></a>
+  <a class="card link" href="{{ url_for('equipment') }}"><h3>Equipment Usage Tracking</h3><p>Manage equipment and usage records.</p></a>
+  <a class="card link" href="{{ url_for('reports') }}"><h3>Grant & Publication Reporting</h3><p>Run required Phase 3 reports.</p></a>
+</div>
+<div class="card">
+  <h3>Quick Required Queries</h3>
+  <p><a href="{{ url_for('project_status') }}">Display project status</a> · <a href="{{ url_for('members_by_grant') }}">Members by grant</a> · <a href="{{ url_for('mentorship_same_project') }}">Mentorship on same project</a> · <a href="{{ url_for('equipment_status') }}">Equipment status</a> · <a href="{{ url_for('current_users') }}">Current equipment users</a></p>
+</div>
+{% endblock %}

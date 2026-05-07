@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card">
+<h2>{{ action }} Member</h2>
+<form method="post" class="form-grid">
+  <label>MID <input name="mid" value="{{ row.MID if row else '' }}" {% if row %}readonly{% endif %} required></label>
+  <label>Name <input name="name" value="{{ row.Name if row else '' }}" required></label>
+  <label>Join Date <input type="date" name="join_date" value="{{ row.Join_Date if row else '' }}" required></label>
+  <label>Type <select name="type"><option value="faculty">faculty</option><option value="student">student</option><option value="collaborator">collaborator</option></select></label>
+  <label>Mentor MID <input name="mentor" value="{{ row.Mentor if row and row.Mentor else '' }}"></label>
+  <label>Mentor Start <input type="date" name="m_sdate" value="{{ row.M_SDate if row and row.M_SDate else '' }}"></label>
+  <label>Mentor End <input type="date" name="m_edate" value="{{ row.M_EDate if row and row.M_EDate else '' }}"></label>
+  <label>Department <input name="department"></label>
+  <label>SID <input name="sid"></label>
+  <label>Level <select name="level"><option value="junior">junior</option><option value="senior">senior</option><option value="graduate student">graduate student</option></select></label>
+  <label>Major <input name="major"></label>
+  <label>Affiliation <input name="affiliation"></label>
+  <label>CV <textarea name="cv"></textarea></label>
+  <button>{{ action }} Member</button>
+</form>
+</section>
+{% endblock %}

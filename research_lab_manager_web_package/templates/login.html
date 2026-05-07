@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="card narrow">
+  <h2>Connect to MySQL</h2>
+  <form method="post" class="form-grid">
+    <label>Host <input name="host" value="localhost"></label>
+    <label>User <input name="user" value="root"></label>
+    <label>Password <input type="password" name="password"></label>
+    <label>Database <input name="database" value="research_lab_manager"></label>
+    <button type="submit">Connect</button>
+  </form>
+</section>
+{% endblock %}
